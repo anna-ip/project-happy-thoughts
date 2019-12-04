@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 // import { Messages } from './Happy-Messages/Messages'
 // import { Form } from './Happy-Form/Form'
 import './App.css'
+import moment from 'moment';
 
 
 export const App = () => {
@@ -86,11 +87,15 @@ export const App = () => {
             <li key={text._id} className="message-list">
 
               <div className="message"> {text.message} </div>
-              <div className="heart-div">
-                <button className="heart-btn"
-                  onClick={handleHeartSubmit}><span role="img" aria-label="heart">❤️</span></button> <span> x {text.hearts}</span>
-              </div>
-
+              <section className="bottom-line">
+                <div className="heart-div">
+                  <button className="heart-btn"
+                    onClick={handleHeartSubmit}><span role="img" aria-label="heart">❤️</span></button> <span> x {text.hearts}</span>
+                </div>
+                <div className="time">
+                  {moment(text.createdAt).fromNow()}
+                </div>
+              </section>
             </li >
           ))}
         </ul>

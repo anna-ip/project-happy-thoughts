@@ -28,10 +28,14 @@ section {
 
 textarea {
     border: 0.5px solid grey;
-    background-color: #f0d1c9
+    background-color: #f0d1c9;
+    resize: none; /** så rutan ej går att drag*/
 }
 
 .form-btn {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     border: 2px solid #bf2705; /***Take away later***/
     border-radius: 13px;
     background-color: #bf2705;
@@ -61,6 +65,14 @@ li {
 
 .message {
     margin: 20px 15px 0;
+    text-align: center;
+}
+
+.bottom-line {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: space-between;
 }
 
 .heart-div {
@@ -86,4 +98,8 @@ li {
 span {
     font-size: 13px;
     text-indent: 5px;
+}
+
+.time {
+    font-size: 15px;
 }
