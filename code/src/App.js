@@ -1,16 +1,14 @@
 import React, { useState, useEffect } from 'react'
-// import { Messages } from './Happy-Messages/Messages'
-// import { Form } from './Happy-Form/Form'
+
 import './App.css'
 import moment from 'moment';
 
 
 export const App = () => {
   const [message, setMessage] = useState(''); /** For the Form part**/
-  const [text, setText] = useState('');/**  ev plocka bort **/
   const [thoughts, setThoughts] = useState([]);  /** For the handleSubmit .then **/
   const [happyText, setHappyText] = useState([]); /** list with happy thougts ***/
-  const [heartValue, setHeartValue] = useState([]);
+
 
 
 
@@ -20,9 +18,9 @@ export const App = () => {
       .then(res => res.json())
       /*.then(json => console.log(json))*/
       .then(json => setHappyText(json));
-  }, [message, happyText]); // the array gives it a 2nd argument to prevent the fetch to happen everytime the state changes
+  }, [message, happyText]); //dependencies when the fecth should update
 
-
+  // **** Form fetch ******
   const handleFormSubmit = (event) => {
     event.preventDefault()
 
@@ -31,7 +29,6 @@ export const App = () => {
       body: JSON.stringify({ message }),
       headers: { 'Content-Type': 'application/json' }
     })
-
       .then((res) => res.json())
       .then((newThought) => {
         setThoughts((previousThoughts) => [newThought, ...previousThoughts])
@@ -39,7 +36,7 @@ export const App = () => {
       .then(() => setMessage(""))
   }
 
-
+  //  **** Heart button fetch *****
   const handleHeartSubmit = (id) => {
 
     fetch(`https://technigo-thoughts.herokuapp.com/${id}/like`, {
@@ -47,12 +44,8 @@ export const App = () => {
       body: "",
       headers: { 'Content-Type': 'application/json' }
     })
-
       .then((res) => res.json())
       .then(json => console.log(json))
-    // .then((prevState) => {
-    //   setHeartValue((updatedValues) => [prevState, ...updatedValues])
-    //})
   }
 
 
@@ -74,9 +67,9 @@ export const App = () => {
               value={message} //tror jag kan plocks bort den
               required>
             </textarea>
-
           </section>
 
+          {/*** Form submit button ***/}
           <div>
             <button className="form-btn"
               onClick={handleFormSubmit}
@@ -90,6 +83,7 @@ export const App = () => {
         </form>
       </div>
 
+
       {/****  List with Happy thoughts meassages *****/}
       <div>
         <ul>
@@ -99,6 +93,8 @@ export const App = () => {
               <div className="message"> {text.message} </div>
               <section className="bottom-line">
                 <div className="heart-div">
+
+                  {/***  Heart/like button ***/}
                   <button className="heart-btn"
                     onClick={() => handleHeartSubmit(text._id)}>
                     <span role="img" aria-label="heart">❤️</span>
