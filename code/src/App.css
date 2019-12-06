@@ -1,5 +1,6 @@
 body {
     background-color: #f0d1c9;
+    font-family: Menlo;
 }
 .form-box {
     display: flex;
@@ -11,25 +12,29 @@ body {
 form {
     display: flex;
     flex-direction: column;
-    /*max-width: 50%;*/
-    align-items: center;
     width: 300px;
-    height: 130px;
+    height: 110px;
     border: 1px solid black;
     background-color: #f3b2a4;
     box-shadow: 6px 6px;
-
+    padding: 15px;
 }
 
 section {
     display: flex;
     flex-direction: column;
+    width: -webkit-fill-available;
+}
+
+p {
+    font-size: 12px;
+    margin: 0 0 12px;
 }
 
 textarea {
     border: 0.5px solid grey;
     background-color: #f0d1c9;
-    resize: none; /** så rutan ej går att drag*/
+    resize: none; /** to prevent the posibility to expand the text box **/
 }
 
 .form-btn {
@@ -55,17 +60,19 @@ li {
     flex-direction: column;
     list-style-type: none;
     border: 1px solid black;
-    width: 300px;
-    height: 130px;
+    width: 310px;
+    height: 100px;
     margin: 10px;
     box-shadow: 6px 6px;
     text-align: center;
     background-color: #f3b2a4;
+    justify-content: space-between;
+    padding: 15px;
 }
 
 .message {
-    margin: 20px 15px 0;
     text-align: center;
+    font-size: 15px;
 }
 
 .bottom-line {
@@ -79,7 +86,6 @@ li {
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding-left: 10px;
     justify-content: flex-start;
     align-content: flex-end;
     width: fit-content;
@@ -90,16 +96,22 @@ li {
     width: 30px;
     height: 30px;
     border-radius: 50%;
+    border: none;
     margin: 0;
     background-color: #bf2705;
     font-size: 15px;
 }
 
 span {
+    width: fit-content;
+    height: fit-content;
     font-size: 13px;
     text-indent: 5px;
+    margin-left: 1px;
 }
 
-.time {
-    font-size: 15px;
+.hearts-clicked, .time {
+    color: darkslategrey;
+    font-size: 12px;
 }
+
