@@ -1,20 +1,27 @@
 import React, { useState, useEffect } from 'react'
-
 import './App.css'
 import moment from 'moment';
 
 
+//The url for the Happy thought backend project
+const thoughtsUrl = `https://happy-thought-api.herokuapp.com`
+// The original url from the Happy thought front-end project: 
+// const thoughtsUrl = `https://technigo-thoughts.herokuapp.com`
+
+
+
 export const App = () => {
+
   const [message, setMessage] = useState(''); /** For the Form part**/
   const [thoughts, setThoughts] = useState([]);  /** For the handleSubmit .then **/
   const [happyText, setHappyText] = useState([]); /** list with happy thougts ***/
+  const [likes, setLikes] = useState()
 
 
 
 
   useEffect(() => {
-
-    fetch(`https://technigo-thoughts.herokuapp.com`)
+    fetch(thoughtsUrl)
       .then(res => res.json())
       /*.then(json => console.log(json))*/
       .then(json => setHappyText(json));
@@ -23,8 +30,7 @@ export const App = () => {
   // **** Form fetch ******
   const handleFormSubmit = (event) => {
     event.preventDefault()
-
-    fetch(`https://technigo-thoughts.herokuapp.com/`, {
+    fetch(thoughtsUrl, {
       method: 'POST',
       body: JSON.stringify({ message }),
       headers: { 'Content-Type': 'application/json' }
@@ -37,15 +43,16 @@ export const App = () => {
   }
 
   //  **** Heart button fetch *****
-  const handleHeartSubmit = (id) => {
 
-    fetch(`https://technigo-thoughts.herokuapp.com/${id}/like`, {
+  const handleHeartSubmit = (id) => {
+    fetch(`${thoughtsUrl}/${id}/like`, {
       method: 'POST',
-      body: "",
-      headers: { 'Content-Type': 'application/json' }
     })
+
       .then((res) => res.json())
       .then(json => console.log(json))
+      .then(setLikes(likes + 1))
+      .catch(err => console.log('error', err))
   }
 
 
@@ -99,7 +106,7 @@ export const App = () => {
                     onClick={() => handleHeartSubmit(text._id)}>
                     <span role="img" aria-label="heart">❤️</span>
                   </button>
-                  <span className="hearts-clicked"> x {text.hearts}</span>
+                  <span className="hearts-clicked"> x {text.heart}</span>
                 </div>
                 <div className="time">
                   {moment(text.createdAt).fromNow()}

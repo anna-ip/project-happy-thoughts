@@ -42,7 +42,7 @@ textarea {
     display: flex;
     flex-direction: row;
     align-items: center;
-    border: 2px solid #bf2705; /***Take away later***/
+    border: 2px solid #bf2705; 
     border-radius: 13px;
     background-color: #bf2705;
     margin: 10px 0;
