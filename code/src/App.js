@@ -5,9 +5,6 @@ import moment from 'moment';
 
 //The url for the Happy thought backend project
 const thoughtsUrl = `https://happy-thought-api.herokuapp.com`
-// The original url from the Happy thought front-end project: 
-// const thoughtsUrl = `https://technigo-thoughts.herokuapp.com`
-
 
 
 export const App = () => {
@@ -18,16 +15,13 @@ export const App = () => {
   const [likes, setLikes] = useState()
 
 
-
-
   useEffect(() => {
     fetch(thoughtsUrl)
       .then(res => res.json())
-      /*.then(json => console.log(json))*/
       .then(json => setHappyText(json));
-  }, [message, happyText]); //dependencies when the fecth should update
+  }, [message, happyText]); //dependencies for when the fecth should update
 
-  // **** Form fetch ******
+  // **** Submit and post a Happy thought ******
   const handleFormSubmit = (event) => {
     event.preventDefault()
     fetch(thoughtsUrl, {
@@ -43,12 +37,10 @@ export const App = () => {
   }
 
   //  **** Heart button fetch *****
-
   const handleHeartSubmit = (id) => {
     fetch(`${thoughtsUrl}/${id}/like`, {
       method: 'POST',
     })
-
       .then((res) => res.json())
       .then(json => console.log(json))
       .then(setLikes(likes + 1))
@@ -56,10 +48,8 @@ export const App = () => {
   }
 
 
-
   return (
     <div>
-
       {/**** Form for sending Happy thoughts  *****/}
       <div className="form-box">
         <form onSubmit={(event) => event.preventDefault()}>
@@ -71,7 +61,7 @@ export const App = () => {
               minLength="5"
               maxLength="150"
               onChange={(event) => setMessage(event.target.value)}
-              value={message} //tror jag kan plocks bort den
+              value={message}
               required>
             </textarea>
           </section>
@@ -80,7 +70,7 @@ export const App = () => {
           <div>
             <button className="form-btn"
               onClick={handleFormSubmit}
-              type="submit" >
+              type="submit">
               <span role="img" aria-label="heart">❤️</span>
               Send Happy Thoughts
               <span role="img" aria-label="heart">❤️</span>
@@ -91,16 +81,14 @@ export const App = () => {
       </div>
 
 
-      {/****  List with Happy thoughts meassages *****/}
+      {/****  List with meassages of Happy thoughts  *****/}
       <div>
         <ul>
           {happyText.map(text => (
             <li key={text._id} className="message-list">
-
               <div className="message"> {text.message} </div>
               <section className="bottom-line">
                 <div className="heart-div">
-
                   {/***  Heart/like button ***/}
                   <button className="heart-btn"
                     onClick={() => handleHeartSubmit(text._id)}>
@@ -116,9 +104,7 @@ export const App = () => {
           ))}
         </ul>
       </div >
-
     </div >
-
-  );
-};
+  )
+}
 
