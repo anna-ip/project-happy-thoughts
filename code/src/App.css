@@ -1,118 +1,118 @@
 body {
-    background-color: #f0d1c9;
-    font-family: Menlo;
+  background-color: #f0d1c9;
+  font-family: Menlo;
 }
 
 .form-box {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
 }
 
 form {
-    display: flex;
-    flex-direction: column;
-    width: 300px;
-    height: 110px;
-    border: 1px solid black;
-    background-color: #f3b2a4;
-    box-shadow: 6px 6px;
-    padding: 15px;
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  height: 110px;
+  border: 1px solid black;
+  background-color: #f3b2a4;
+  box-shadow: 6px 6px;
+  padding: 15px;
 }
 
 section {
-    display: flex;
-    flex-direction: column;
-    width: -webkit-fill-available;
+  display: flex;
+  flex-direction: column;
+  width: -webkit-fill-available;
 }
 
 p {
-    font-size: 12px;
-    margin: 0 0 12px;
+  font-size: 12px;
+  margin: 0 0 12px;
 }
 
 textarea {
-    border: 0.5px solid grey;
-    background-color: #f0d1c9;
-    resize: none; /** to prevent the posibility to expand the text box **/
+  border: 0.5px solid grey;
+  background-color: #f0d1c9;
+  resize: none; /** to prevent the posibility to expand the text box **/
 }
 
 .form-btn {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    border: 2px solid #bf2705; 
-    border-radius: 13px;
-    background-color: #bf2705;
-    margin: 10px 0;
-    color: white;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: 2px solid #bf2705; 
+  border-radius: 13px;
+  background-color: #bf2705;
+  margin: 10px 0;
+  color: white;
 }
 
 ul {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
 }
 
 li {
-    display: flex;
-    flex-direction: column;
-    list-style-type: none;
-    border: 1px solid black;
-    width: 300px;
-    height: 100px;
-    margin: 10px;
-    box-shadow: 6px 6px;
-    text-align: center;
-    background-color: #f3b2a4;
-    justify-content: space-between;
-    padding: 15px;
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  border: 1px solid black;
+  width: 300px;
+  height: 100px;
+  margin: 10px;
+  box-shadow: 6px 6px;
+  text-align: center;
+  background-color: #f3b2a4;
+  justify-content: space-between;
+  padding: 15px;
 }
 
 .message {
-    text-align: center;
-    font-size: 13px;
+  text-align: center;
+  font-size: 13px;
 }
 
 .bottom-line {
-    display: flex;
-    flex-direction: row;
-    align-items: baseline;
-    justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: space-between;
 }
 
 .heart-div {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-    align-content: flex-end;
-    width: fit-content;
-    height: fit-content;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  align-content: flex-end;
+  width: fit-content;
+  height: fit-content;
 }
 
 .heart-btn {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    border: none;
-    margin: 0;
-    background-color: #bf2705;
-    font-size: 15px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: none;
+  margin: 0;
+  background-color: #bf2705;
+  font-size: 15px;
 }
 
 span {
-    width: fit-content;
-    height: fit-content;
-    font-size: 13px;
-    text-indent: 5px;
-    margin-left: 1px;
+  width: fit-content;
+  height: fit-content;
+  font-size: 13px;
+  text-indent: 5px;
+  margin-left: 1px;
 }
 
 .hearts-clicked, .time {
-    color: darkslategrey;
-    font-size: 12px;
+  color: darkslategrey;
+  font-size: 12px;
 }
 
