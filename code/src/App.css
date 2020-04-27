@@ -27,7 +27,7 @@ section {
   width: -webkit-fill-available;
 }
 
-p {
+label {
   font-size: 12px;
   margin: 0 0 12px;
 }

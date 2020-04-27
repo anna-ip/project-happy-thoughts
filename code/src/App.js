@@ -55,8 +55,9 @@ export const App = () => {
         <form onSubmit={(event) => event.preventDefault()}>
 
           <section>
-            <p>What's making you happy right now?:</p>
+            <label for="new-message">What's making you happy right now?</label>
             <textarea
+              id="new-message"
               rows="3"
               minLength="5"
               maxLength="150"
