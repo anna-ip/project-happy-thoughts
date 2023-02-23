@@ -4,14 +4,13 @@ import moment from 'moment';
 
 
 //The url for the Happy thought backend project
-const thoughtsUrl = `https://happy-thought-api.herokuapp.com`
-
+const thoughtsUrl = `https://happy-thoughts-kx0m.onrender.com`
 
 export const App = () => {
 
   const [message, setMessage] = useState(''); /** For the Form part**/
-  const [thoughts, setThoughts] = useState([]);  /** For the handleSubmit .then **/
-  const [happyText, setHappyText] = useState([]); /** list with happy thougts ***/
+  const [, setThoughts] = useState([]);  /** For the handleSubmit .then **/
+  const [happyText, setHappyText] = useState([]); /** list with happy thoughts ***/
   const [likes, setLikes] = useState()
 
 
@@ -19,7 +18,7 @@ export const App = () => {
     fetch(thoughtsUrl)
       .then(res => res.json())
       .then(json => setHappyText(json));
-  }, [message, happyText]); //dependencies for when the fecth should update
+  }, [message, happyText]); //dependencies for when the fetch should update
 
   // **** Submit and post a Happy thought ******
   const handleFormSubmit = (event) => {
@@ -34,6 +33,9 @@ export const App = () => {
         setThoughts((previousThoughts) => [newThought, ...previousThoughts])
       })
       .then(() => setMessage(""))
+      .catch((error) => {
+        console.log(error)
+      })
   }
 
   //  **** Heart button fetch *****
@@ -53,9 +55,8 @@ export const App = () => {
       {/**** Form for sending Happy thoughts  *****/}
       <div className="form-box">
         <form onSubmit={(event) => event.preventDefault()}>
-
           <section>
-            <label for="new-message">What's making you happy right now?</label>
+            <label htmlFor="new-message">What's making you happy right now?</label>
             <textarea
               id="new-message"
               rows="3"
