@@ -19,7 +19,7 @@ Link to the deployed project:
 https://happy-thought-messages-anna-almestal.netlify.com/
 
 Link to deployed backend: 
-https://happy-thought-api.herokuapp.com/
+[https://happy-thought-api.herokuapp.com/](https://happy-thoughts-kx0m.onrender.com)
 
 
 
